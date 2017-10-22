@@ -4,17 +4,17 @@
 %}
 
 digit [0-9]
-symbol [A-za-z]
-hex [0-9A-F]
+symbol [A-Z a-z]
+hex [0-9 A-F]
 
 id symbol(symbol|digit)*
-literal digit+|(digit*"."digit+)|symbol|symbol+|0x(hex+)
 
-ILIT digit+
-RLIT (digit*)(".")(digit+)
-CLIT symbol
-SLIT symbol+
-HLIT 0x(hex+)
+
+ILIT {digit}+
+RLIT {digit}*("."{digit}+)
+CLIT {symbol}
+SLIT {symbol}+
+HLIT 0x({hex}+)
 
 LPT "(" 
 RPT ")"
@@ -26,7 +26,7 @@ RSB "]"
 DOT "."
 SEMI ";"
 
-ESYMBOLS LPT|RPT|LCB|RCB|LSB|RSB|DOT|SEMI
+
 
 PLUS "+"
 MINUS "-"
@@ -34,14 +34,13 @@ PROD "*"
 DIV "/"
 ASSIGN ":="
 REM "%"
-INC PLUSPLUS
-DEC MINUSMINUS
-MSYMBOLS PLUS|MINUS|PROD|DIV|ASSIGN|INC|DEC
+INC {PLUS}{PLUS}
+DEC {MINUS}{MINUS}
+
 
 BACKSL "\\"
 SINGLEQ "'"
 DOUBLEQ "\""
-OSYMBOL BACKSL|SINGLEQ|DOUBLEQ
 
 IF "if"
 ELSE "else"
@@ -52,14 +51,24 @@ REAL "real"
 CHAR "char"
 VOID "void"
 
-NL BACKSLn
-TAB BACKSLt
-CR BACKSLr
-BKSL BACKSLBACKSL
+
+NL {BACKSL}"n"
+TAB {BACKSL}"t"
+CR {BACKSL}"r"
+BKSL {BACKSL}{BACKSL}
 
 
 %%
 {id} {printf("ID\n");}
+
+{IF} {printf("IF\n");}
+{ELSE} {printf("ELSE\n");}
+{FOR} {printf("FOR\n");}
+{RETURN} {printf("RETURN\n");}
+{INT} {printf("INT\n");}
+{REAL} {printf("REAL\n");}
+{CHAR} {printf("CHAR\n");}
+{VOID} {printf("VOID\n");}
 {ILIT} {printf("ILIT\n");}
 {RLIT} {printf("RLIT\n");}
 {CLIT} {printf("CLIT\n");}
@@ -84,14 +93,7 @@ BKSL BACKSLBACKSL
 {BACKSL} {printf("BACKSL\n");}
 {SINGLEQ} {printf("SINGLEQ\n");}
 {DOUBLEQ} {printf("DOUBLEQ\n");}
-{IF} {printf("IF\n");}
-{ELSE} {printf("ELSE\n");}
-{FOR} {printf("FOR\n");}
-{RETURN} {printf("RETURN\n");}
-{INT} {printf("INT\n");}
-{REAL} {printf("REAL\n");}
-{CHAR} {printf("CHAR\n");}
-{VOID} {printf("VOID\n");}
+
 {NL} {printf("NL\n");}
 {TAB} {printf("TAB\n");}
 {CR} {printf("CR\n");}
@@ -102,5 +104,3 @@ int main() {
     yylex();
     return 0;
 }
-
-
