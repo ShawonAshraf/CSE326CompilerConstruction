@@ -30,4 +30,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\shawo\Downloads\assignment1C\assignment1C\input.txt" />
+  </ItemGroup>
 </Project>
