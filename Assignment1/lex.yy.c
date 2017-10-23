@@ -961,12 +961,13 @@ YY_RULE_SETUP
 #line 100 "lang.l"
 {printf("BKSL\n");}
 	YY_BREAK
+{printf("ERROR\n");}
 case 38:
 YY_RULE_SETUP
-#line 101 "lang.l"
+#line 103 "lang.l"
 ECHO;
 	YY_BREAK
-#line 970 "lex.yy.c"
+#line 971 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1963,7 +1964,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 101 "lang.l"
+#line 103 "lang.l"
 
 
 

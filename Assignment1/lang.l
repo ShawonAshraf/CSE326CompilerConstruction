@@ -98,6 +98,8 @@ BKSL {BACKSL}{BACKSL}
 {TAB} {printf("TAB\n");}
 {CR} {printf("CR\n");}
 {BKSL} {printf("BKSL\n");}
+
+{} {printf("ERROR\n");}
 %%
 
 int main() {
