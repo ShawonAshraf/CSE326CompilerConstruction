@@ -444,7 +444,7 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyprhs[] =
 {
        0,     0,     3,     5,     6,     9,    14,    19,    26,    32,
-      33,    37,    41,    45,    47,    51,    54,    56,    58,    60,
+      33,    37,    41,    43,    47,    51,    54,    56,    58,    60,
       62,    64,    66,    68,    70,    72,    74,    76,    78,    80
 };
 
@@ -455,7 +455,7 @@ static const yytype_int8 yyrhs[] =
       23,    36,    25,    -1,    23,    12,    38,    25,    -1,    14,
       17,    38,    18,    15,    37,    -1,    16,    17,    38,    18,
       37,    -1,    -1,    13,    23,    36,    -1,    19,    34,    20,
-      -1,    38,    42,    39,    -1,    39,    -1,    17,    38,    18,
+      -1,    39,    -1,    38,    42,    39,    -1,    17,    38,    18,
       -1,     8,    38,    -1,    23,    -1,    41,    -1,    28,    -1,
       29,    -1,    30,    -1,     4,    -1,     3,    -1,     5,    -1,
        6,    -1,     7,    -1,     8,    -1,     9,    -1,    10,    -1,
@@ -465,9 +465,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    28,    28,    29,    29,    30,    31,    32,    33,    34,
-      34,    35,    36,    36,    37,    37,    38,    38,    39,    39,
-      39,    40,    40,    40,    40,    41,    41,    41,    41,    41
+       0,    28,    28,    32,    32,    33,    34,    35,    36,    37,
+      37,    38,    39,    39,    63,    63,    64,    64,    65,    65,
+      65,    66,    66,    66,    66,    67,    67,    67,    67,    67
 };
 #endif
 
@@ -509,7 +509,7 @@ static const yytype_uint8 yyr1[] =
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     1,     0,     2,     4,     4,     6,     5,     0,
-       3,     3,     3,     1,     3,     2,     1,     1,     1,     1,
+       3,     3,     1,     3,     3,     2,     1,     1,     1,     1,
        1,     1,     1,     1,     1,     1,     1,     1,     1,     1
 };
 
@@ -520,9 +520,9 @@ static const yytype_uint8 yydefact[] =
 {
        3,     0,     0,     0,    18,    19,    20,     0,     2,     3,
        0,     0,     0,     0,     1,     4,     9,    22,    21,    23,
-      24,     0,     0,    16,     0,    13,    17,     0,     0,     0,
+      24,     0,     0,    16,     0,    12,    17,     0,     0,     0,
        0,    15,     0,    25,    26,    27,    28,    29,     0,     0,
-       0,     6,     9,     5,    14,     0,    12,     3,     8,    10,
+       0,     6,     9,     5,    14,     0,    13,     3,     8,    10,
        7,     0,    11
 };
 
@@ -1405,9 +1405,133 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-      
+        case 2:
+#line 28 "g99.y"
+    {if (yychar == YYEOF) {
+                    printf("accept\n");
+                 	}
+                 }
+    break;
+
+  case 6:
+#line 34 "g99.y"
+    {printf("variable value = %d\n", (yyvsp[(3) - (4)]));}
+    break;
+
+  case 12:
+#line 39 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 13:
+#line 39 "g99.y"
+    { if((yyvsp[(2) - (3)])=='+')
+											  {
+											  	  (yyval) = (yyvsp[(1) - (3)]) + (yyvsp[(3) - (3)]);
+											  }
+											  else if((yyvsp[(2) - (3)])=='-')
+											  {
+											  	  (yyval) = (yyvsp[(1) - (3)]) - (yyvsp[(3) - (3)]);
+											  }
+											  else if((yyvsp[(2) - (3)])=='*')
+											  {
+											  	  (yyval) = (yyvsp[(1) - (3)]) * (yyvsp[(3) - (3)]);
+											  }
+											  else if((yyvsp[(2) - (3)])=='/')
+											  {
+											  	  (yyval) = (yyvsp[(1) - (3)]) / (yyvsp[(3) - (3)]);
+											  }
+											  else if((yyvsp[(2) - (3)])=='%')
+											  {
+											  	  (yyval) = (yyvsp[(1) - (3)]) - ((yyvsp[(3) - (3)]) * ((yyvsp[(1) - (3)]) / (yyvsp[(3) - (3)])));
+											  }
+											  
+											}
+    break;
+
+  case 14:
+#line 63 "g99.y"
+    {(yyval) = (yyvsp[(2) - (3)]);}
+    break;
+
+  case 15:
+#line 63 "g99.y"
+    {(yyval) = -1 * (yyvsp[(2) - (2)]);}
+    break;
+
+  case 16:
+#line 64 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 17:
+#line 64 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 18:
+#line 65 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 19:
+#line 65 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 20:
+#line 65 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 21:
+#line 66 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 22:
+#line 66 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 23:
+#line 66 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 24:
+#line 66 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 25:
+#line 67 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 26:
+#line 67 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 27:
+#line 67 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 28:
+#line 67 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+  case 29:
+#line 67 "g99.y"
+    {(yyval) = (yyvsp[(1) - (1)]);}
+    break;
+
+
 /* Line 1267 of yacc.c.  */
-#line 1411 "y.tab.c"
+#line 1535 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1621,7 +1745,7 @@ yyreturn:
 }
 
 
-#line 43 "g99.y"
+#line 69 "g99.y"
 
 
 extern int yylex(void);

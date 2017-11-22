@@ -772,119 +772,119 @@ YY_RULE_SETUP
 case 2:
 YY_RULE_SETUP
 #line 19 "g99.l"
-{printf("<PLUS>"); return PLUS;}
+{printf("<PLUS>\n"); return PLUS;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 20 "g99.l"
-{printf("<MINUS>"); return MINUS;}
+{printf("<MINUS>\n"); return MINUS;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 21 "g99.l"
-{printf("<TIMES>"); return TIMES;}
+{printf("<TIMES>\n"); return TIMES;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 22 "g99.l"
-{printf("<DIVIDE>"); return DIVIDE;}
+{printf("<DIVIDE>\n"); return DIVIDE;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 23 "g99.l"
-{printf("<REM>"); return REM;}
+{printf("<REM>\n"); return REM;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 24 "g99.l"
-{printf("<LP>"); return LP;}
+{printf("<LP>\n"); return LP;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 25 "g99.l"
-{printf("<RP>"); return RP;}
+{printf("<RP>\n"); return RP;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 26 "g99.l"
-{printf("<LC>"); return LC;}
+{printf("<LC>\n"); return LC;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 27 "g99.l"
-{printf("<RC>"); return RC;}
+{printf("<RC>\n"); return RC;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 28 "g99.l"
-{printf("<LB>"); return LB;}
+{printf("<LB>\n"); return LB;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 29 "g99.l"
-{printf("<RB>"); return RB;}
+{printf("<RB>\n"); return RB;}
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
 #line 30 "g99.l"
-{printf("<ENDL>");}
+{printf("<ENDL>\n");}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 31 "g99.l"
-{printf("<SEMI>"); return SEMI;}
+{printf("<SEMI>\n"); return SEMI;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 32 "g99.l"
-{printf("<HASH>"); return HASH;}
+{printf("<HASH>\n"); return HASH;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 33 "g99.l"
-{printf("<ASSIGN>"); return ASSIGN;}
+{printf("<ASSIGN>\n"); return ASSIGN;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
 #line 34 "g99.l"
-{printf("<COMMA>"); return COMMA;}
+{printf("<COMMA>\n"); return COMMA;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 35 "g99.l"
-{printf("<INT>"); return INT;}
+{printf("<INT>\n"); return INT;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 36 "g99.l"
-{printf("<FLOAT>"); return FLOAT;}
+{printf("<FLOAT>\n"); return FLOAT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 37 "g99.l"
-{printf("<CHAR>"); return CHAR;}
+{printf("<CHAR>\n"); return CHAR;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 38 "g99.l"
-{printf("<IF>"); return IF;}
+{printf("<IF>\n"); return IF;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 39 "g99.l"
-{printf("<THEN>"); return THEN;}
+{printf("<THEN>\n"); return THEN;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 40 "g99.l"
-{printf("<WHILE>"); return WHILE;}
+{printf("<WHILE>\n"); return WHILE;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 42 "g99.l"
 {	yylval=atof(yytext);
-				printf("<%s,RLIT>", yytext);
+				printf("<%s,RLIT>\n", yytext);
 				return RLIT;
 			}
 	YY_BREAK
@@ -893,26 +893,26 @@ YY_RULE_SETUP
 #line 47 "g99.l"
 {
 				yylval= atoi(yytext); 
-				printf("<%s,ILIT>", yytext); 
+				printf("<%s,ILIT>\n", yytext); 
 				return ILIT;
 			}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 53 "g99.l"
-{printf("<CHAR>"); return CLIT;}
+{printf("<CHAR>\n"); return CLIT;}
 	YY_BREAK
 case 27:
 /* rule 27 can match eol */
 YY_RULE_SETUP
 #line 55 "g99.l"
-{printf("<TEXT>"); return SLIT;}
+{printf("<TEXT>\n"); return SLIT;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 57 "g99.l"
 {
-				printf("<%s,ID>", yytext); 
+				printf("<%s,ID>\n", yytext); 
 				return ID;
 			}
 	YY_BREAK
@@ -920,7 +920,7 @@ case 29:
 YY_RULE_SETUP
 #line 62 "g99.l"
 {
-				printf("<INVALID SYMBOL>"); 
+				printf("<INVALID SYMBOL>\n"); 
 				return LEXERR;
 			}
 	YY_BREAK

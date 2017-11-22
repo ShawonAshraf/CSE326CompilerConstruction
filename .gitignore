@@ -13,6 +13,8 @@
 *.vb
 *.wsf
 
+# gcc built exec
+a.out
 
 ### Linux ###
 *~

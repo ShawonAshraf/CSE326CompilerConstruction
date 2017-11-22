@@ -16,51 +16,51 @@ string 	"\""[^"]*"\""
 
 %%
 {white}		{}
-"+" 		{printf("<PLUS>"); return PLUS;}
-"-" 		{printf("<MINUS>"); return MINUS;}
-"*" 		{printf("<TIMES>"); return TIMES;}
-"/" 		{printf("<DIVIDE>"); return DIVIDE;}
-"%" 		{printf("<REM>"); return REM;}
-"(" 		{printf("<LP>"); return LP;}
-")" 		{printf("<RP>"); return RP;}
-"{" 		{printf("<LC>"); return LC;}
-"}" 		{printf("<RC>"); return RC;}
-"[" 		{printf("<LB>"); return LB;}
-"]" 		{printf("<RB>"); return RB;}
-"\n" 		{printf("<ENDL>");}
-";"			{printf("<SEMI>"); return SEMI;}
-"#" 		{printf("<HASH>"); return HASH;}
-":="		{printf("<ASSIGN>"); return ASSIGN;}
-"," 		{printf("<COMMA>"); return COMMA;}
-"int" 		{printf("<INT>"); return INT;}
-"float" 	{printf("<FLOAT>"); return FLOAT;}
-"char" 		{printf("<CHAR>"); return CHAR;}
-"if" 		{printf("<IF>"); return IF;}
-"then" 		{printf("<THEN>"); return THEN;}
-"while" 	{printf("<WHILE>"); return WHILE;}
+"+" 		{printf("<PLUS>\n"); return PLUS;}
+"-" 		{printf("<MINUS>\n"); return MINUS;}
+"*" 		{printf("<TIMES>\n"); return TIMES;}
+"/" 		{printf("<DIVIDE>\n"); return DIVIDE;}
+"%" 		{printf("<REM>\n"); return REM;}
+"(" 		{printf("<LP>\n"); return LP;}
+")" 		{printf("<RP>\n"); return RP;}
+"{" 		{printf("<LC>\n"); return LC;}
+"}" 		{printf("<RC>\n"); return RC;}
+"[" 		{printf("<LB>\n"); return LB;}
+"]" 		{printf("<RB>\n"); return RB;}
+"\n" 		{printf("<ENDL>\n");}
+";"			{printf("<SEMI>\n"); return SEMI;}
+"#" 		{printf("<HASH>\n"); return HASH;}
+":="		{printf("<ASSIGN>\n"); return ASSIGN;}
+"," 		{printf("<COMMA>\n"); return COMMA;}
+"int" 		{printf("<INT>\n"); return INT;}
+"float" 	{printf("<FLOAT>\n"); return FLOAT;}
+"char" 		{printf("<CHAR>\n"); return CHAR;}
+"if" 		{printf("<IF>\n"); return IF;}
+"then" 		{printf("<THEN>\n"); return THEN;}
+"while" 	{printf("<WHILE>\n"); return WHILE;}
 
 {real}		{	yylval=atof(yytext);
-				printf("<%s,RLIT>", yytext);
+				printf("<%s,RLIT>\n", yytext);
 				return RLIT;
 			}
 			
 {digit}+	{
 				yylval= atoi(yytext); 
-				printf("<%s,ILIT>", yytext); 
+				printf("<%s,ILIT>\n", yytext); 
 				return ILIT;
 			}
 
-{char}		{printf("<CHAR>"); return CLIT;}
+{char}		{printf("<CHAR>\n"); return CLIT;}
 
-{string}	{printf("<TEXT>"); return SLIT;}
+{string}	{printf("<TEXT>\n"); return SLIT;}
 
 {letter}({letter}|{digit})* {
-				printf("<%s,ID>", yytext); 
+				printf("<%s,ID>\n", yytext); 
 				return ID;
 			}
 			
 .			{
-				printf("<INVALID SYMBOL>"); 
+				printf("<INVALID SYMBOL>\n"); 
 				return LEXERR;
 			}
 %%
